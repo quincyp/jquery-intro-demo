@@ -1,0 +1,20 @@
+'States' we care about in this game
+
+- total amount of unfound matches (status display to user)
+- time since start (SDTU)
+- number of non-matches (SDTU)
+- win game
+- restart game
+
+For Tiles
+- has this tile been matched
+	if yes = show
+	if no = flip back over
+
+	OR
+	if match == show + disable click
+
+
+- has the tile been clicked
+- how many tiles have been clicked (true)
+	- limit clicks to 3

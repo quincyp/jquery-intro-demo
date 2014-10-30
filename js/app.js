@@ -39,7 +39,63 @@ $('#game-board img').click(function(){
 	console.log(tileData2);
 });
 
+//iterate over array, calling passed function for each element
+//also works with objects
+var array = ['a', 'b', 'c', 'd'];		//_.contains(array, 'b');
+_.forEach(array, function(element, index) {
 
+ console.log(element);
+ console.log(index);
+});
+
+_.difference(array, ['c', 'd']);
+var unionArray = _.union(array, ['e','f']);
+_.intersection(array, ['b', 'c']);
+
+//new array numbers
+var numArray = [1,2,3,4,5,6,7,8,9,10];
+
+//show me the even values of the array
+var evens = _.filter(numArray, function(num) {return 0 == num %2;});
+console.log(evens);
+
+//shuffle() returns a new shuffled array,
+//leaving the original array intact
+var shuffledArray = _.shuffle(numArray);
+
+console.log(shuffledArray);
+console.log(numArray);
+console.log(array);
+console.log(unionArray);
+
+/*
+
+
+
+*/
+var startTime = _.now();
+console.log(startTime);
+
+var timer; //hold our timer value
+
+//use window.setInterval to create a timer that runs a function
+//every second
+
+timer = window.setInterval(onTimer, 500); //1000 = 1 second
+function onTimer() {
+	//compare _.now() to start time to get elapsed time
+	//Math.floor() rounds down the nearest integer
+	var elapsedSeconds = Math.floor((_.now() - startTime) / 500);
+	console.log(elapsedSeconds);
+	$('#game-board h2').css("font-size", elapsedSeconds + 'px')
+}
+
+function stopTimer() {
+	window.clearInterval(timer);
+	$('#game-board').empty();
+}
+
+//$('.jumbotron').click(stopTimer());
 
 //select all navigation links
 var allNavLinks = $('nav a');
